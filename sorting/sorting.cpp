@@ -30,7 +30,28 @@ namespace introToAlgo{
 	}
 
 
-	//
+	//Insertion sort
+	void insertionSort(void *itemList,int itemNum,int itemSize,int (*comparator)(const void*,const void*)){
+
+		void* key=(void*)malloc(itemSize);
+
+		for(int i=1;i<itemNum;i++){
+			memcpy(key,(char*)itemList+i*itemSize,itemSize);
+
+			for(int o=i-1;o>=-1;o--){
+				if(o==-1|| (comparator(key,(char*)itemList+o*itemSize)>0)){
+					memcpy((char*)itemList+(o+1)*itemSize,key,itemSize);
+					break;
+
+				}
+				else{
+					memcpy((char*)itemList+(o+1)*itemSize,(char*)itemList+o*itemSize,itemSize);
+						
+				}
+			}
+		}
+		return;
+	}
 
 
 
