@@ -26,6 +26,8 @@ namespace introToAlgo{
 				}
 			}
 		}
+		free(temp);
+		temp=0;
 		return;
 	}
 
@@ -50,12 +52,73 @@ namespace introToAlgo{
 				}
 			}
 		}
+		free(key);
+		key=0;
 		return;
 	}
 
+	//merge sort.
+	void mergeSort(void*itemList,int itemNum,int itemSize,int (*compare)(const void*,const void*)){
+		void* temp=(void*)malloc(itemNum*itemSize);
+		__mergeSort(itemList,0,itemNum-1,itemSize,compare,temp);
+		free(temp);
+		temp=0;
+		return;
+	}
 
+	static void __mergeSort(void*itemList,int strIndex,int endIndex,int itemSize,int (*compare)(const void*,const void*),void*temp){
+		
+		const int itemNum=endIndex-strIndex+1;
+		//termination condition.
+		if(itemNum==1) return;
 
+		//first half is from index strIndex to fstEndIndex(both included)
+		const int fstEndIndex=strIndex+(itemNum/2)-1;
+		//first half is from index sndStrIndex to endIndex(both included)
+		const int sndStrIndex=strIndex+(itemNum/2);
 
+		__mergeSort(itemList,strIndex,fstEndIndex,itemSize,compare,temp);
+		__mergeSort(itemList,sndStrIndex,endIndex,itemSize,compare,temp);
+
+		__merge(itemList,strIndex,endIndex,itemSize,compare,temp);
+		return;
+	}
+
+	static void __merge(void*itemList,int strIndex,int endIndex,int itemSize,int (*compare)(const void*,const void*),void*temp){
+			
+		const int itemNum=endIndex-strIndex+1;
+		
+		//first half is from index strIndex to fstEndIndex(both included)
+		const int fstEndIndex=strIndex+(itemNum/2)-1;
+		//first half is from index sndStrIndex to endIndex(both included)
+		const int sndStrIndex=strIndex+(itemNum/2);
+		
+		
+		int fstCurIndex=strIndex;
+		int sndCurIndex=sndStrIndex;
+		int alreadyCopy=0;
+
+		while(alreadyCopy<itemNum){
+			
+			if( (sndCurIndex>endIndex) || ( fstCurIndex<=fstEndIndex && compare((char*)itemList+fstCurIndex*itemSize,(char*)itemList+sndCurIndex*itemSize)<0 ) ){
+
+				memcpy((char*)temp+alreadyCopy*itemSize,(char*)itemList+fstCurIndex*itemSize,itemSize);
+				fstCurIndex++;
+				alreadyCopy++;
+
+			}
+			else{
+
+				memcpy((char*)temp+alreadyCopy*itemSize,(char*)itemList+sndCurIndex*itemSize,itemSize);
+				sndCurIndex++;
+				alreadyCopy++;
+
+			}
+			
+		}
+		memcpy((char*)itemList+strIndex*itemSize,temp,itemSize*itemNum);			
+		return;
+	}
 
 
 }

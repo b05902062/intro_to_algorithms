@@ -13,3 +13,5 @@
 
 * Algorithms included:
     * bubbleSort
+    * insertionSort
+    * mergeSort

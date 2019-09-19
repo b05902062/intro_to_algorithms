@@ -5,3 +5,5 @@ by Wang Zihmin 2019
 
 ## Sorting algorithms
 * bubbleSort
+* insertionSort
+* mergeSort

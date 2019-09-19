@@ -35,7 +35,7 @@ int main(){
 	//have to check invalid input.(omitted)
 
 	//run sorting here.
-	introToAlgo::insertionSort(itemList,itemNum,sizeof(double),exampleDoubleComparator);
+	introToAlgo::mergeSort(itemList,itemNum,sizeof(double),exampleDoubleComparator);
 
 
 	//print result.
