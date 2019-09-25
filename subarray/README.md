@@ -9,7 +9,7 @@
           $g++ exampleMainBuildInInt.cpp subarray.cpp
 * The subarray algorithms in this section has a general format that can defined as desired by users.
 
-* You can find more helps in exmaple files and in header files to see definitions and how to use these sorting algorithms.
+* You can find more helps in exmaple files and in header files to see definitions and how to use these algorithms.
 
 * Algorithms included:
     * optimalSubarray (maximum subarray)
