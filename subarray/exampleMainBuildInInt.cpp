@@ -3,7 +3,7 @@
 
 //if your want your value to be interger please use introToAlgo::subarrayInt and introToAlgo::optimalSubarrayInt().
 int exampleValue(const void* item){
-	//if you pass an interger array pointer to optimalSubarray,i you can think of the item as being a interger pointer. We acquire its value and return it.
+	//if you pass an interger array pointer to optimalSubarray, you can think of the item as being a interger pointer. We acquire its value and return it.
 	int value=*(int*)item;
 	return value;
 
