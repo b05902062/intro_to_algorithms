@@ -21,31 +21,22 @@ int exampleDoubleComparator(const void*p1,const void*p2){
 	
 int main(){
 
-	//acquire input.
-	printf("How many items?\n");
-	int itemNum;
-	scanf("%d",&itemNum);
 
-	double *itemList=(double*)malloc(sizeof(double)*itemNum);
-	printf("Enter the itmes.\n");
-	for(int i=0;i<itemNum;i++){
-		scanf("%lf",&itemList[i]);
-	}
-
+	double itemList[5]={3,2,6,100,-1};
 	//have to check invalid input.(omitted)
 
 	//run sorting here.
-	introToAlgo::mergeSort(itemList,itemNum,sizeof(double),exampleDoubleComparator);
+	introToAlgo::mergeSort(itemList,5,sizeof(double),exampleDoubleComparator);
+	//introToAlgo::bubbleSort(itemList,5,sizeof(double),exampleDoubleComparator);
+	//introToAlgo::insertionSort(itemList,5,sizeof(double),exampleDoubleComparator);
 
 
 	//print result.
-	for(int i=0;i<itemNum;i++){
+	for(int i=0;i<5;i++){
 		printf("%lf ",itemList[i]);
 
 	}
 	printf("\n");
 
-	free(itemList);
-	itemList=0;
 	return 0;
 }

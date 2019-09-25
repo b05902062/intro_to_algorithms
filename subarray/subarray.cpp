@@ -9,7 +9,7 @@ namespace introToAlgo{
 	//optimalSubarray for interger value.
 	int optimalSubarrayInt(void * itemList,int itemNum,int itemSize,int (*value)(const void* item),introToAlgo::subarrayInt *outMax){
 		
-		if(itemList==0||itemNum<=0) return -1;
+		if(itemList==0||itemNum<=0||itemSize<=0) return -1;
 
 		//Some buffer and initialization.
 		introToAlgo::subarrayInt &max=*outMax;
@@ -51,7 +51,7 @@ namespace introToAlgo{
 	//optimalSubarray for double value.
 	int optimalSubarrayDouble(void * itemList,int itemNum,int itemSize,double (*value)(const void* item),introToAlgo::subarrayDouble *outMax){
 		
-		if(itemList==0||itemNum<=0) return -1;
+		if(itemList==0||itemNum<=0||itemSize<=0) return -1;
 
 		//Some buffer and initialization.
 		introToAlgo::subarrayDouble &max=*outMax;

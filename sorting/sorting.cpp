@@ -13,7 +13,7 @@ namespace introToAlgo{
 	//bubble sort.
 	int bubbleSort(void *itemList,int itemNum,int itemSize,int (*comparator)(const void*,const void*)){
 		
-		if(itemList==0||itemNum==0||itemSize==0) return 1;
+		if(itemList==0||itemNum<=0||itemSize<=0) return -1;
 		char *temp=(char*)malloc(itemSize);
 		if(temp==0) return -1;
 		
@@ -37,7 +37,7 @@ namespace introToAlgo{
 
 	//Insertion sort
 	int insertionSort(void *itemList,int itemNum,int itemSize,int (*comparator)(const void*,const void*)){
-		if(itemList==0||itemNum==0||itemSize==0) return 1;
+		if(itemList==0||itemNum<=0||itemSize<=0) return 1;
 		void* key=(void*)malloc(itemSize);
 		if(key==0) return -1;
 		
@@ -63,7 +63,7 @@ namespace introToAlgo{
 
 	//merge sort.
 	int mergeSort(void*itemList,int itemNum,int itemSize,int (*compare)(const void*,const void*)){
-		if(itemList==0||itemNum==0||itemSize==0) return 1;
+		if(itemList==0||itemNum<=0||itemSize<=0) return 1;
 		void* temp=(void*)malloc(itemNum*itemSize);
 		if(temp==0) return -1;
 		
