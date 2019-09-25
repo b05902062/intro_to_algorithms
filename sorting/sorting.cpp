@@ -11,9 +11,12 @@ By Wang zihmin@National Taiwan university 2019.
 namespace introToAlgo{
 
 	//bubble sort.
-	void bubbleSort(void *itemList,int itemNum,int itemSize,int (*comparator)(const void*,const void*)){
-
+	int bubbleSort(void *itemList,int itemNum,int itemSize,int (*comparator)(const void*,const void*)){
+		
+		if(itemList==0||itemNum==0||itemSize==0) return 1;
 		char *temp=(char*)malloc(itemSize);
+		if(temp==0) return -1;
+		
 		for(int i=itemNum;i>1;i--){
 				
 			for(int o=0;o<i-1;o++){
@@ -28,15 +31,16 @@ namespace introToAlgo{
 		}
 		free(temp);
 		temp=0;
-		return;
+		return 1;
 	}
 
 
 	//Insertion sort
-	void insertionSort(void *itemList,int itemNum,int itemSize,int (*comparator)(const void*,const void*)){
-
+	int insertionSort(void *itemList,int itemNum,int itemSize,int (*comparator)(const void*,const void*)){
+		if(itemList==0||itemNum==0||itemSize==0) return 1;
 		void* key=(void*)malloc(itemSize);
-
+		if(key==0) return -1;
+		
 		for(int i=1;i<itemNum;i++){
 			memcpy(key,(char*)itemList+i*itemSize,itemSize);
 
@@ -54,16 +58,19 @@ namespace introToAlgo{
 		}
 		free(key);
 		key=0;
-		return;
+		return 1;
 	}
 
 	//merge sort.
-	void mergeSort(void*itemList,int itemNum,int itemSize,int (*compare)(const void*,const void*)){
+	int mergeSort(void*itemList,int itemNum,int itemSize,int (*compare)(const void*,const void*)){
+		if(itemList==0||itemNum==0||itemSize==0) return 1;
 		void* temp=(void*)malloc(itemNum*itemSize);
+		if(temp==0) return -1;
+		
 		__mergeSort(itemList,0,itemNum-1,itemSize,compare,temp);
 		free(temp);
 		temp=0;
-		return;
+		return 1;
 	}
 
 	static void __mergeSort(void*itemList,int strIndex,int endIndex,int itemSize,int (*compare)(const void*,const void*),void*temp){
