@@ -1,7 +1,7 @@
 #include<iostream>
 #include"subarray.h"
-
-//define value to be the sum of the first two element.
+//if your want your value to be interger please use introToAlgo::subarrayInt and introToAlgo::optimalSubarrayInt().
+//illustrate how to define value to be the sum of the first two element in a structure.
 struct exampleStruct{
 	int a;
 	int b;
