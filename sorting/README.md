@@ -9,7 +9,7 @@
           $g++ exampleMain.cpp sorting.cpp
 * The sorting algorithms in this section has the same general format as the qsort in standard c/c++ library that can take in any user-defined data types.
 
-* You can find more helps in exmapleMain.cpp to see how to use these sorting algorithms.
+* You can find more helps in exmapleMain.cpp and header files to see definitions and how to use these sorting algorithms.
 
 * Algorithms included:
     * bubbleSort
